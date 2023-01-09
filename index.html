@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Horário do Dia</title>
+    <style>
+        * {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 2em;
+        }
+
+        p {
+            text-align: center;
+        }
+
+        section {
+            background-color: white;
+            margin: auto;
+            padding: 15px;
+            border-radius: 25px;
+            box-shadow: 10px 10px 50px rgba(0, 0, 0, 0.486);
+            max-width: 500px;
+            max-height: 550px;
+        }
+
+        img {
+            display: block;
+            margin: auto;
+            max-width: 80%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Horário do Dia</h1>
+    </header>
+
+    <section>
+        <p id="frase">O horário aparecerá aqui.</p>
+
+        <img src="morning.png" alt="Manhã" id="imagem">
+
+        <p>Volte outro horário para ver o site mudar!</p>
+    </section>
+    
+    <script>
+        let hora = new Date().getHours()
+        let frase = document.getElementById('frase')
+        frase.innerHTML = `Neste exato momento são <b> ${hora} </b> horas. `
+        let img = document.getElementById('imagem')
+        
+        if (12 > hora >= 6){
+            img.src = 'morning.png'
+            document.body.style.background = 'lightyellow'
+        } else if (18 > hora >= 12) {
+            img.src = 'afternoon.png'
+            document.body.style.background = 'lightorange'
+        } else {
+            img.src = 'night.png'
+            document.body.style.background = 'gray'
+        }
+    </script>
+
+</body>
+</html>
